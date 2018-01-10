@@ -26,7 +26,6 @@ guard let input = String(data: pipe.fileHandleForReading.readDataToEndOfFile(), 
     exit(1)
 }
 
-//let regexPattern = " *(.*\\.rkt):(\\d+):(\\d+): (.*)\n.*context...:\n *?(.*)\n"
 let regexPattern = " *(.*?\\.rkt):(\\d+):(\\d+): (.*)\n * context"
 let regex = try! NSRegularExpression(pattern: regexPattern, options: .dotMatchesLineSeparators)
 let matches = regex.matches(in: input, options: [], range: NSRange(input.startIndex..<input.endIndex, in: input))
